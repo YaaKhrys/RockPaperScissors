@@ -19,6 +19,20 @@ The classic game is pretty simple. It is a hand game usually played between two 
 
 It is often used in some cases for decision-making or a game of chance.
 
+## Pseudocode
+- **Input**: Player (user or P) enters an option (either Rock, Paper or Scissors), at the sametime the Computer (C) randomly selects an option as well.
+
+- **Output**: Winner of the game or Draw depending the outcome of the round/game;
+
+    - If p=c, return "Draw"
+    - If p="Rock" and  c="Scissors", return "Player wins!"
+    - Else If p="Paper" and c="Rock", return "PLayer wins!"
+    - Else If p="Scissors" and c="Paper", return "PLayer wins!"
+    - Else return "Computer wins!"
+
+    The conditions above are based on the rules of the game.
+
+
 ## Key Features
 - **Player vs Computer**: Develop an intuitive player versus computer gameplay mode, where users can test their luck and startegy against a computer opponent. 
 
