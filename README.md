@@ -30,6 +30,7 @@ It is often used in some cases for decision-making or a game of chance.
     - Else If p="Scissors" and c="Paper", return "PLayer wins!"
     - Else return "Computer wins!"
 
+
     The conditions above are based on the rules of the game.
 
 
