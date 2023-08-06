@@ -1,0 +1,52 @@
+/*General Design for entire page*/
+body {
+  background-color: rgb(255, 255, 255);  
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/*Text Design*/
+h1 {
+    text-align: center;
+}
+
+h3 {
+    color: aliceblue;
+}
+
+
+/*Player Score Design*/
+.playerScore {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+.playerScoreLable {
+    background-color: black;
+    display: flex;
+    width: 20%;
+
+    
+       
+}
+
+.playerScoreDisplay {
+    background-color: rgb(59, 58, 58);
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    margin: 5px;
+    margin-left: 10%;
+    padding-left: 10%;
+    padding-right: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    
+}
+
+/*Computer Score Design*/
+.computerScore {
+    background-color: blueviolet;
+}
