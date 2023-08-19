@@ -4,3 +4,64 @@ body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/*Score area's design*/
+
+.scoreArea {
+
+}
+
+/*Design for the player and computer scores and the game round's display*/
+
+.playerScore, .computerScore {
+
+}
+
+.roundsDisplay {
+
+
+}
+
+
+/*Design for the game area*/
+.playArea {
+
+}
+
+
+/*Design for each players area to make their moves and the timer for each play round*/
+.playerPlayArea, .computerPlayArea {
+    
+}
+
+
+.playTimer {
+
+}
+
+
+/*Displays who won and what beat what (eg. scissors beats paper*/
+.winAnnounceArea {
+
+}
+
+
+/*More like a footer section for the game with the controls*/
+.gameControlsArea {
+
+}
+
+
+.gameButtons {
+    
+}
+
+
+.playerPlayButtons {
+
+}
+
+
+/*THe copyright area's design/
+.copyrightArea {
+
+}
