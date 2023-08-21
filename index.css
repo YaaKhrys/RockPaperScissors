@@ -72,9 +72,7 @@ font-size: 24px;
     margin-right: 15px;
     }
 
-/*    border-bottom: 50px solid #5A6A78;
-	border-left: 25px solid transparent; 
-	border-right: 25px solid transparent; */
+
 #roundsDisplay {
     width: 215px;
     height: 35px;
@@ -94,18 +92,42 @@ font-size: 24px;
 
 /*Design for the game area*/
 .playArea {
-
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 
 /*Design for each players area to make their moves and the timer for each play round*/
-.playerPlayArea, .computerPlayArea {
-    
+#playerPlayArea {
+    width: 25%;
+    height: 300px;
+    background-color: #5A6A78;
+    background
+
+}
+
+#computerPlayArea {
+    width: 25%;
+    height: 300px;
+    background-color: #5A6A78; 
 }
 
 
-.playTimer {
+#playTimer {
+color: #fff;
+font-size: 30px;
+text-align: center;
+margin-top: 60px;
+}
 
+
+#playTimer p {
+   font-size: 15px; 
+   color: #b4b0b0;
+   margin-top: 0;
 }
 
 
