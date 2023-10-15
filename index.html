@@ -11,11 +11,11 @@
     <!-- Game Goes here-->
     <section>
 
-        <!-- Score Area is the top part of the game that displays the scores for both the user (PLayer) and the Computer and thr round.-->
-        <div class="scoreArea">
-            <div  id="playerScore">
-                <img src="Images/usericon.png" class="thePlayerIcon" alt="the player's icon">
-                <span class="thePlayerScore"> 0 </span>
+        <!-- The Scores Scetion is the top part of the game that displays the scores for both players: the user and the Computer and the rounds.-->
+        <div class="scoresSection">
+            <div  id="userScore">
+                <img src="Images/usericon.png" class="theUserIcon" alt="the user's icon">
+                <span class="theUserScore"> 0 </span>
             </div>
 
             <div id="roundsDisplay">
@@ -29,9 +29,9 @@
          </div>
 
 
-         <!-- PLay Area is the section where the players selected moves happen and the winner declaration-->
-         <div class="playArea">
-            <div id="playerPlayArea">
+         <!-- Play Area is the section where the players selected moves happen and the winner declaration-->
+         <div class="playSection">
+            <div id="userPlayArea">
                 
             </div>
 
@@ -46,18 +46,40 @@
         
          </div>
 
-         <div id="winAnnounceArea">
+         <div id="resultsAnnounceSection">
                 
          </div>
 
-         <!-- The control area houses the game controls for the player to pause, stop or reset the game and also select their move-->
-         <div class="gameControlsArea">
+         <!-- The control area houses the game controls for the user to pause, stop or reset the game and also select their move-->
+         <div class="gameControlsSection">
             <div id="gameButtons">
-                
+                <div id="pauseGameIcon">
+                    <img src="Images/pausebuttonicon.png" class="pauseGame" alt="the pause game icon">
+                  </div> 
+                  
+                  <div id="stopGameIcon">
+                    <img src="Images/stopbutton.png" class="stopGame" alt="the stop game icon">
+                  </div> 
+    
+                  <div id="resetGameIcon">
+                    <img src="Images/reseticon.png" class="resetGame" alt="the reset game icon">
+                  </div> 
             </div>
 
-            <div class="playerPlayButtons">
-                
+            <div class="userPlayButtons">
+              <div id="rockIcon">
+                <img src="Images/rockplayerplay.png" class="rockPlay" alt="the rock play icon">
+              </div> 
+              
+              <div id="paperIcon">
+                <img src="Images/paperplayerplay.png" class="paperPlay" alt="the paper play icon">
+              </div> 
+
+              <div id="scissorsIcon">
+                <img src="Images/scissorsplayerplay.png" class="scissorsPlay" alt="the the scissors play icon">
+              </div> 
+
+              <p id="userActionMessage">Click to select your move/next play</p>
             </div>
 
          </div>
