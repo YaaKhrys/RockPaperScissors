@@ -94,26 +94,27 @@ font-size: 24px;
 .playSection {
     display: flex;
     justify-content: space-between;
-    margin-top: 12%;
+    margin-top: 10%;
     margin-left: 15%;
     margin-right: 15%;
 }
 
 
 /*Design for each players area to make their moves and the timer for each play round*/
-#userPlayArea {
-    width: 25%;
-    height: 300px;
-    background-color: #5A6A78;
-    background
-
+#userMoveIcon, #computerMoveIcon {
+background-color: transparent;
 }
 
-#computerPlayArea {
-    width: 25%;
-    height: 300px;
-    background-color: #5A6A78; 
+.userMove {
+width: 60%;
+height: 100%;
 }
+
+.computerMove {
+    width: 60%;
+    height: 100%;
+    margin-left: 40%;
+    }
 
 
 #playTimer {
@@ -132,9 +133,37 @@ margin-top: 60px;
 
 
 /*Displays who won and what beat what (eg. scissors beats paper)*/
-.resultsAnnounceSection {
-
+#resultsAnnounceSection {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 1%; 
 }
+
+.leftPartyPop, .winIconDisplay, .loseIconDisplay, .rightPartyPop {
+    max-width: 50%;
+    max-height: 60px;
+    margin-top: 5%;
+    padding: 1%
+}
+
+
+#leftPartyPopIcon, #rightPartyPopIcon {
+    width: 100px;
+    height: 50px;
+}
+
+#beatText, #winText {
+    padding-right: 2%;
+    color: #ffb341;
+    font-style: italic;
+    font-size: large;
+}
+
+#loseIcon {
+    padding-left: 2%;
+}
+
 
 
 /*Footer section*/
@@ -183,9 +212,7 @@ margin-top: 60px;
 
 
 #scissorsIcon {
-    margin-right: 5%;
-   
-}
+    margin-right: 5%;}
 
 #userActionMessage {
     font-size: 15px; 
@@ -201,8 +228,9 @@ margin-top: 60px;
 
 /*The copyright area's design*/
 #copyrightText {
-    font-size: 100px; 
-    color: #ffffff;
+    font-size: 18px;
+    color: rgb(145, 143, 143);
     text-align: center;
-    z-index: 10;
+    margin-top: -7%;
+    margin-right: 18%;
 }
