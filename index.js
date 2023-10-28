@@ -18,4 +18,4 @@ console.log(getComputerChoice(shapes));
 
 // The Player selection of Shape
 
-let playerInput = ["Rock", "Paper", "Scissors"];
+let playerInput = ["Rock", "Paper", "Scissors"]; **/
