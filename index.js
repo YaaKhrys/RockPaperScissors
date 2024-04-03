@@ -1,10 +1,31 @@
 // SetUp Variables
 let userMove = "";
 let computerMove = "";
-let userScore = 0;   // Varaibles to track scores
-let computerScore = 0;  // Varaibles to track scores
-let playsINRound = 0;
+let userScore = 0;   // Varaibles to store scores
+let computerScore = 0;  // Varaibles to store scores
+let playsInRound = 0;
+const playsPerRound = 3; // Number of plays in each round
 let round = 1;
+let annoucement = "";
+let timer = "";
+let userMoveHistory = [];
+let lastDisplayedMove = "";
+let count = 5; // Initial countdown value
+let shuffleInterval; // ShuffleInterval aaccessible
+let gameStarted = false;
+let gameReseted = false;
+let gameOver = false;
+let gamePaused = false;
+let interval = null; // Variable to track the game state (paused or not)
+let userMoves = "";
+let computerMoves = "";
+let nextButtonClicked = false;
+let userMovesSelectionClicked = false;
+let userMovePlayed = false;
+let computerImagePath = "";
+let imagePath = "";
+//let userMove = document.getElementById("userRockDisplay");
+//let computerMoveImage = document.getElementById("computerRockDisplay");
 
 
 
