@@ -485,3 +485,11 @@ function togglePlay() {
         }
     }
 }
+
+
+function endGame() {
+    clearInterval(interval); // Stop the timer
+
+    displayGameOverDialog();
+    // Any other tasks to end the game
+}
