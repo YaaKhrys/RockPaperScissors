@@ -199,4 +199,18 @@ function generateComputerMove() {
      return computerChoice;
 }
 
-// Function to display both player's moves after shuffling
+
+
+// Function to reset player moves to default values
+function resetPlayerMoves() {
+    //console.log ('Players moves resetted');
+// If game count is 5, reset player moves to rock
+if (gameState.count === 5) {
+    imagePath = "Images/rockplayerplay.png";
+    computerImagePath = "Images/rockcomputerplay.png";
+    
+    userMoveDisplay.src = imagePath;
+    //userMoveDisplay.style.display = 'block'; // Show the user's move image
+    computerMoveDisplay.src = computerImagePath;
+}
+}
