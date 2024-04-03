@@ -623,3 +623,48 @@ document.body.addEventListener('keydown', handleKeyPress1);
 
 // Add event listeners for key press events
 document.body.addEventListener('keydown', handleKeyPress2);
+
+
+// Function to shuffle player moves before displaying selected moves
+function shufflePlayerMoves() {
+
+    // Hide all userImages initially
+    userImages.forEach(img => img.style.display = 'none');
+    computerImages.forEach(img => img.style.display = 'none');
+
+    // Function to display a random image
+    function displayRandomImage() {
+        // Generate a random index
+        const randomUserIndex = Math.floor(Math.random() * userImages.length);
+        const randomComputerIndex = Math.floor(Math.random() * computerImages.length);
+        
+        // Hide all userImages
+        userImages.forEach(img => img.style.display = 'none');
+        computerImages.forEach(img => img.style.display = 'none');
+
+        
+        // Display the randomly selected image
+        userImages[randomUserIndex].style.display = 'block';
+        computerImages[randomComputerIndex].style.display = 'block';
+    }
+
+     // Shuffle images every  100ms
+     const shuffleInterval = setInterval(displayRandomImage,  100);
+
+        
+     
+     // Stop shuffling after  10 seconds
+     setTimeout(() => {
+         clearInterval(shuffleInterval);
+        
+        // Display the selected moves' images
+        userMoveDisplay.src = imagePath;
+        userMoveDisplay.style.display = 'block'; // Show the user's move image
+        computerMoveDisplay.src = computerImagePath;
+        computerMoveDisplay.style.display = 'block'; // Show the computer's move image
+        
+         // Optionally, you can display a specific image after  10 seconds
+         // For example, to display the first image:
+         // images[0].style.display = 'block';
+     },  1000); //  1 seconds
+ }
