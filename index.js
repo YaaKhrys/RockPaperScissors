@@ -361,3 +361,83 @@ function updateCountdownDisplay() {
     const countdownDisplay = document.querySelector("#playTimer h2");
     countdownDisplay.textContent = `00:0${gameState.count}s`;
 }
+
+
+
+// Function to start the Timer Countdown
+function startCountdown(){ 
+    
+    if (gameState.gameOver) {
+        //console.log('Game over! Thanks for playing.');
+        endGame();
+        return; // Exit the function if the game is over
+    }
+
+
+    if (gameState.gamePaused) {
+        //console.log("Checking", gameState.gamePaused);
+        gameState.gamePaused = true;
+    } else{
+
+     interval = setInterval(() => {        
+        gameState.count--; // Decrement the countdown value and Update the countdown display with the current count
+        updateCountdownDisplay();
+
+        //console.log(gameState, interval);
+       if (gameState.count === 0){
+       // Check if the user has played
+       
+       if (!userMovePlayed) {
+        // Log a message indicating that the user did not play
+        //console.log("User did not play");
+        moveStatusText.textContent = "You did not select a move.\nClick Play button to continue play.";
+        clearInterval(interval); // Stop the countdown
+        gameState.count = 5;
+        updateCountdownDisplay();
+        gameState.gameStarted = false;
+        return;
+    } else {
+    
+    clearInterval(interval); // Stop the countdown
+    gameState.count = 0;
+    updateCountdownDisplay();    
+       
+        setTimeout(() => {
+          
+            
+            // Check if the user has played
+            //updateCountdownDisplay();
+           shufflePlayerMoves();
+
+           //Checking the win status
+           const result = determineWinner(userMoves, computerMoves)
+
+           // Win announcement
+           //console.log(annoucementDisplay);
+           displayResultsAnnouncement();
+
+           // Update the score based on the result
+           updateScore(result);
+
+           //Update Round
+            roundCount()
+
+
+        
+        //Add a delay of 3seconds before restarting the countdown
+         setTimeout(() => {
+            //console.log('Restarting countdown...');
+            gameState.count = 5;
+            updateCountdownDisplay();
+             //Reset player move display images back to rock before countdown begins again  
+             resetPlayerMoves();
+             userMovePlayed = false;
+             startCountdown(); // Restart the countdown
+
+
+        }, 3000); // 1000 milliseconds = 2 seconds
+    },2000);
+    }}// Trigger the game logic when countdown finishes  
+    }, 1000);  // Run the countdown every second    
+}
+ }
