@@ -521,3 +521,105 @@ function resetTheGame() {
         //console.log("Game reseted");
     }
 }
+
+
+// Event listener for the pause button
+pauseButton.addEventListener('click', pauseGame);
+
+
+// Event listener for the play button
+document.getElementById('playGameIcon').addEventListener('click', resumeGame);
+
+
+// Event listener for the reset button
+document.getElementById('resetGameIcon').addEventListener('click', resetTheGame);
+
+
+// Function to display the pause dialog box
+function displayPauseDialog() {
+    pauseDialogBox.style.visibility = 'visible'; 
+}
+
+
+// Function to hide the pause dialog box
+function hidePauseDialog() {
+    pauseDialogBox.style.visibility = 'hidden';
+}
+
+// Function to toggle the visibility of the pause dialog box
+function togglePauseDialog() {
+    if (pauseDialog.style.visibility === 'visible') {
+        hidePauseDialog();
+    } else {
+        displayPauseDialog();
+    }
+}
+
+// Event listener for the pause button or spacebar to toggle pause/resume
+window.addEventListener('keydown', function(event) {
+    if (event.key === ' ') { // Check if spacebar is pressed
+        if (pauseDialogBox.style.visibility === 'visible') {
+            resumeGame(); // If pause dialog is visible, resume the game
+            hidePauseDialog(); // Hide the pause dialog
+        } else {
+            pauseGame(); // If pause dialog is hidden, pause the game
+            displayPauseDialog(); // Display the pause dialog
+        }
+    }
+});
+
+
+// Event listener for the resume button to hide the pause dialog box
+resumeButton.addEventListener('click', function() {
+    hidePauseDialog();
+    // Add any additional logic to resume the game here
+});
+
+// Event listener for the close button (X) to hide the pause dialog box
+document.querySelector('.pauseDialogclose').addEventListener('click', hidePauseDialog);
+
+
+// Function to handle key press events
+function handleKeyPress1(event) {
+    // Check if the Enter or P key is pressed to start the game
+    if (event.key === 'Enter' || event.key === 'p' || event.key === 'P') {
+        togglePlay();
+    }
+    // Check if the Spacebar key is pressed to pause/resume the game
+    else if (event.key === ' ' || event.key === 'Spacebar') {
+        if (gameState.gamePaused) {
+            resumeGame(); // Resume the game if it's paused
+        } else {
+            pauseGame(); // Otherwise, pause the game
+        }
+    }
+}
+
+
+// Function to handle key press events
+function handleKeyPress2(event) {
+    // Check if the Enter key is pressed to activate the welcome box or start the game
+    if ((event.key === 'Escape' || event.key === 'N' || event.key === 'n') && welcomeBox.style.display !== 'none') {
+        // Activate the welcome box's next button
+        nextButton.click();
+    }
+    
+    // Check if the Enter key is pressed to close the intro dialog box and start game
+    if ((event.key === 'Enter' || event.key === 'P' || event.key === 'p') && introDialog.style.visibility === 'visible') {
+        closeIntroDialog();
+    }
+
+    // Check if the Escape key is pressed to close the intro dialog box
+    if (event.key === 'Escape' && introDialog.style.visibility === 'visible') {
+        closeIntroDialog();
+    }
+}
+
+
+
+
+// Add event listeners for key press events
+document.body.addEventListener('keydown', handleKeyPress1);
+
+// Add event listeners for key press events
+document.body.addEventListener('keydown', handleKeyPress2);
