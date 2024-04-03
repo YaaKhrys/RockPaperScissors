@@ -449,3 +449,39 @@ function startCountdown(){
     //console.log("Game On!");
     statusCheck();
 }
+
+
+// Function to pause the game
+function pauseGame() {
+    if (!gameState.gamePaused) {
+        clearInterval(interval);
+        clearInterval(shuffleInterval);
+        gameState.gamePaused = true;
+        welcomePauseSound.play()
+        updateCountdownDisplay();
+        //console.log(gameState);
+        //console.log("Game paused");
+    }
+}
+
+function resumeGame(){
+    if (gameState.gamePaused) { // If the game is paused
+        gameState.gamePaused = false; // Update game state to indicate game is resumed
+        startCountdown(); // Restart the countdown timer
+        updateCountdownDisplay();
+        welcomePauseSound.pause();
+        //console.log("Game resumed"); // Log message
+    }
+}
+
+
+// Function to toggle between starting and pausing/resuming the game
+function togglePlay() {
+    if (!gameState.gameStarted) {
+        startGame();
+    } else {
+        if (gameState.gamePaused) {
+            resumeGame();
+        }
+    }
+}
