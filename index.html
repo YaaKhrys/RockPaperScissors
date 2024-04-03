@@ -9,9 +9,94 @@
 </head>
 <body>
 
-    <!-- Game Goes here-->
-    <section>
+<!-- Welcome popup dialog box -->
+<div id="welcomeBox">
+    <div class="welcomeDialog-content">
+        <h2 id="welcomeText">ROCK PAPER SCISSORS!</h2>
+        <p id="luckText">Luck is all you will need! &#128520;</p>
+        <img src="Images/rpswelcomecover.png" id="coverImage" >
+        <button id="nextButton" class="coverNextButton">>>></button>
+    </div>
+</div>
 
+    <!-- Introductory popup dialog box -->
+<div id="introDialog" class="introdialog">
+  <div id="dialogContent" class="dialog-content">
+    <span id="closeWindow" onclick="closeIntroDialog()">&times;</span>
+    <div> 
+    <img src="Images/HowToPlayRock+Paper+Scissors+CardsPopUpBeforeGameStarts.png" id="introImage" class="RSPIntroIcon" alt="a Rock Ppaer Scissors game image">
+  </div> 
+      <div id="gameGuide">
+      <h3 id="gameGuideTitle">How to Play</h3>
+        <p id="howToPlay">User vs Computer.<br> 
+          <br> Select your move (before the timer runs out) by clicking your preferred move icon: ROCK, PAPER, or SCISSORS. <br>
+          <br> There's a shuffle and both players selected moves are displayed. 
+          The timer resets and the game continues till the two rounds are played. <br></p>
+      <h3 id="gameRulesTitle">Game Rules</h3>
+        <p id="theGameRules">Rock crushes scissors, but is covered by paper. 
+          <br>Paper covers rock, but is cut by scissors. 
+          <br> Scissors cut paper, but are crushed by rock.
+        </p>
+          <hr>
+          <p id="gameScoring"> <strong>Scoring:</strong> Each round consists of three single matches. 
+            Points are accumulated per single match won. Draws do not count towards the score. 
+            The player with the highest score at the end of the rounds wins!</p>
+          <p id="gameControlsGuide"><strong>Controls:</strong>  Click on the icons to select your move. 
+            Press the spacebar to pause/resume the game or click on the in-game play/pause icons.
+            Hit Enter or P to start the game or click on the play icon.</p>
+            <p id="bestWishes">Good luck and have fun!&#128293;&#128540;</p><br>
+          </div>
+    <button id="start" onclick="startGame()">Start</button>
+  </div>
+</div>
+
+
+<!-- Mini dialog box for game pause -->
+<div id="pauseDialogBox" class="pause-dialog">
+  <div class="pauseDialog-content">
+      <span class="pauseDialogclose" onclick="resumeGame()">&times;</span>
+      <h2 id="pauseText" >Game Paused</h2>
+      <button id="pauseDialogResume" onclick="resumeGame()">Resume</button>
+  </div>
+</div>
+
+
+<!-- Game Over dialog box -->
+<div id="gameOverDialog" class="dialog">
+  <div class="dialog-contentGameOver">
+      <span class="closeGameOver" onclick="resetTheGame()">&times;</span>
+      <h1 id="gameOverTitle">GAME OVER!</h1>
+      <h2 id="gameOverText"></h2>
+  </div>
+</div>
+
+
+    <!-- Game Sounds -->
+<audio id="welcomePauseGameSound" loop>
+  <source src="Sounds/Game Sound before start audio.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+<audio id="userMovesSelectionSound">
+  <source src="Sounds/User move selection play audio.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+<audio id="userWinGameSound" loop>
+  <source src="Sounds/User winning game audio.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+<audio id="userLoseGameSound" loop>
+  <source src="Sounds/User losing or failing game audio.wav" type="audio/mpeg">
+  Your browser does not support the audio element.
+</audio>
+
+
+    <!-- Game Goes here-->
+    <section id="gameSection">
         <!-- The Scores Section is the top part of the game that displays the scores for both players: the user and the Computer and the rounds.-->
         <div class="scoresSection">
             <div  id="userScore">
@@ -19,8 +104,8 @@
                 <span class="theUserScore"> 0 </span>
             </div>
 
-            <div id="roundsDisplay">
-                <span>Round 1</span>
+            <div id="Rounds">
+                <span id="roundsDisplay">Round <span class="roundsCountNumber">1</span></span>
             </div>
 
             <div id="computerScore">
@@ -33,40 +118,28 @@
          <!-- Play Area is the section where the players selected moves happen and the winner declaration-->
          <div class="playSection">
             <div id="userMoveDisplayIcon">
-              <div id="userRockDisplay">
-              <img src="Images/rockplayerplay.png" class="userMoveDisplay" alt="the reset game icon">
-             </div>
-
-             <div id="userPaperDisplay">
-              <img src="Images/paperplayerplay.png" class="userMoveDisplay" alt="the reset game icon">
-             </div>
-
-             <div id="userScissorsDisplay">
-              <img src="Images/scissorsplayerplay.png" class="userMoveDisplay" alt="the reset game icon">
-             </div>
+              <img src="Images/rockplayerplay.png"  id="userRockDisplay" class="userMoveDisplay" alt="the reset game icon">
+              <img src="Images/paperplayerplay.png" id="userPaperDisplay" class="userMoveDisplay" alt="the reset game icon">
+              <img src="Images/scissorsplayerplay.png" id="userScissorsDisplay" class="userMoveDisplay" alt="the reset game icon">
             </div>
 
             <div id="playTimer">
                 <h2>00:05s</h2>
-                <p>Time to next move</p>
+                <p id="status"> Game has not started yet. <br>Please Press Enter or Click play.</p>
             </div>
 
             <div id="computerMoveDisplayIcon">
-              <div id="computerRockDisplay">
-              <img src="Images/rockcomputerplay.png" class="computerMoveDisplay" alt="the reset game icon">
-              </div>
-
-              <div id="computerPaperDisplay">
-                <img src="Images/papercomputerplay.png" id="computerPaperMove" class="computerMoveDisplay" alt="the reset game icon">
-              </div>
-
-              <div id="computerScissorsDisplay">
-                <img src="Images/scissorscomputerplay.png" class="computerMoveDisplay" alt="the reset game icon">
-              </div>
+              <img src="Images/rockcomputerplay.png" id="computerRockDisplay" class="computerMoveDisplay" alt="the reset game icon">
+              <img src="Images/papercomputerplay.png" id="computerPaperDisplay" class="computerMoveDisplay" alt="the reset game icon">
+              <img src="Images/scissorscomputerplay.png" id="computerScissorsDisplay" class="computerMoveDisplay" alt="the reset game icon">
             </div>
          </div>
 
-         <div id="resultsAnnounceSection">
+         <div id="gameSpace">
+
+         </div>
+
+         <div id="resultsAnnounceSection" class="announcementSection">
           <div id="leftPartyPopIcon">
             <img src="Images/left-party-popper-emoji-2048x2015-w3bcnd29 1.png" class="leftPartyPop" alt="the celebration pop icon on the left side of the game win annoucement">
           </div>
@@ -96,31 +169,31 @@
          
          <footer class="gameControlsAndFooterSection">
             <div id="gameButtons">
-                <div id="pauseGameIcon">
-                    <img src="Images/pausebuttonicon.png" class="gameControls" alt="the pause game icon">
+                <div id="playGameIcon" >
+                    <img src="Images/playbuttonicon.png" onclick="togglePlay('click')" class="gameControls play over brighten" alt="the play game icon" >
                   </div> 
                   
-                  <div id="stopGameIcon">
-                    <img src="Images/stopbutton.png" class="gameControls" alt="the stop game icon">
+                  <div id="pauseGameIcon">
+                    <img src="Images/pausebuttonicon.png" onclick="togglePlay('click')" class="gameControls pause under brighten" alt="the pause game icon">
                   </div> 
     
                   <div id="resetGameIcon">
-                    <img src="Images/reseticon.png" class="gameControls" alt="the reset game icon">
+                    <img src="Images/reseticon.png" onclick="resetTheGame('click')"  class="gameControls brighten" alt="the reset game icon">
                   </div> 
             </div>
 
 
             <div class="userPlayButtons">
-              <div id="rockIcon">
-                <img src="Images/rockplayerplay.png" class="userMoveOptions" alt="the rock play icon">
+              <div id="rockIcon" onclick="selectUserMove('rock')">
+                <img src="Images/rockplayerplay.png" class="userMoveOptions brighten" alt="the rock play icon">
               </div> 
               
-              <div id="paperIcon">
-                <img src="Images/paperplayerplay.png" class="userMoveOptions" alt="the paper play icon">
+              <div id="paperIcon" onclick="selectUserMove('paper')">
+                <img src="Images/paperplayerplay.png" class="userMoveOptions brighten" alt="the paper play icon">
               </div> 
 
-              <div id="scissorsIcon">
-                <img src="Images/scissorsplayerplay.png" class="userMoveOptions" alt="the the scissors play icon">
+              <div id="scissorsIcon" onclick="selectUserMove('scissors')">
+                <img src="Images/scissorsplayerplay.png" class="userMoveOptions brighten" alt="the the scissors play icon">
               </div> 
             </div>
                <div id="userActionMessage">
@@ -131,7 +204,7 @@
 
            <!-- Just a reference or not or copyright text-->
               <div id="copyrightText">
-                 <p>&copy 2023 KhrysCo. Free for reference</p>   
+                 <p>&copy 2024 KhrysCo. Free for reference</p>   
               </div>
          </footer>
     </section>
