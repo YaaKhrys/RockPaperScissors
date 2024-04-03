@@ -668,3 +668,15 @@ function shufflePlayerMoves() {
          // images[0].style.display = 'block';
      },  1000); //  1 seconds
  }
+
+
+
+   // Function to update move status text
+function statusCheck() {
+    
+    // Check if the game has started and the countdown timer is running
+    if (gameState.gameStarted && !gameState.gamePaused && gameState.count > 0) {
+        userChoice = null ;
+        moveStatusText.textContent = "Play Before Time's Up";
+    } 
+    }
