@@ -289,3 +289,43 @@ function displayResultsAnnouncement() {
 
 // Call the displayResultsAnnouncement function after player moves are played
 displayResultsAnnouncement();
+
+
+
+
+// Function to update the scores based on the result
+function updateScore(result) {
+    // Increment user score if the result is 'user'
+    if (result === 'user') {
+        userScore++;
+    }
+    // Increment computer score if the result is 'computer'
+    else if (result === 'computer') {
+        computerScore++;
+    }
+    // Update the score display on the UI
+    userScoreDisplay.textContent = userScore;
+    computerScoreDisplay.textContent = computerScore;
+    playsInRound++;
+}
+
+
+
+// Round count function
+function roundCount() {
+//Check status of round
+if (playsInRound === 3){
+    round++;
+
+//Update rounds increament in UI
+roundDisplay.textContent = round;
+
+//Resets the plays per round to zero
+playsInRound = 0;
+} 
+if (round === 3) {
+    //console.log('Game over! Three rounds up. Thank you for playing!');
+    gameState.gameOver = true; // Mark the game as over
+    endGame(); // End the Game
+}
+}
