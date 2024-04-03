@@ -63,10 +63,62 @@ const winGameSound = document.getElementById("userWinGameSound");
 const loseGameSound = document.getElementById("userLoseGameSound");
 
 
-// Adding event listeners to the User move options div elements
-rockChoice.addEventListener("click", function () {userChooses("Rock");});
-paperChoice.addEventListener("click", function () {userChooses("Paper");});
-scissorsChoice.addEventListener("click", function () {userChooses("Scissors");});
+// Event listener for the "Next" button to show the intro box
+nextButton.addEventListener('click', function() {
+    // Hide the welcome box
+    welcomeBox.style.display = 'none';
+
+    // Show the intro box
+    introDialog.style.visibility = 'visible';
+
+    // Set the flag to true to indicate that the next button has been clicked
+    nextButtonClicked = true;
+
+    // Play the game sound
+    playWelcomePauseGameSound();
+});
+
+// Function to close the intro dialog
+function closeIntroDialog() {
+    // Hide the intro dialog
+    introDialog.style.visibility = 'hidden';
+
+    // Pause the game sound
+    welcomePauseSound.pause();
+}
+
+// Event listener for the close button to close the intro dialog
+closeButton.addEventListener('click', closeIntroDialog);
+
+// Function to play the game sound
+function playWelcomePauseGameSound() {
+     // Play the game sound
+     welcomePauseSound.play()
+     .then(() => {
+         // Sound played successfully
+         //console.log("Sound played successfully");
+     })
+     .catch(error => {
+         // Log the error
+         //console.error("Failed to play sound:", error);
+     });
+}
+
+// Event listener for starting the game when the start button is clicked
+startButton.addEventListener('click', function() {
+    // Close the intro dialog
+    closeIntroDialog();
+});
+
+
+function playUserMovesSound() {
+    // Check if any of the user move options has been clicked
+    if (userMovesSelectionClicked) {
+        // Play the game sound
+        userMoveSelectSound.play();
+    }
+}
+
 
 
 // Function to handle the user's move choice
