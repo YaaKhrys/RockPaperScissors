@@ -343,3 +343,13 @@ function checkUserMove() {
 }
 
 
+
+let gameState = {
+    countdownInterval: null, // Holds the interval ID for the countdown
+    count: 5, // Initial countdown value
+    gameStarted: false,
+    gamePaused: false, // Indicates whether the game is paused or not
+    gameReseted: false,
+    gameOver: false
+};
+
