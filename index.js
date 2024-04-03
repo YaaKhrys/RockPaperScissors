@@ -680,3 +680,55 @@ function statusCheck() {
         moveStatusText.textContent = "Play Before Time's Up";
     } 
     }
+
+
+    // Function to display the Game Over dialog box and determine the result
+function displayGameOverDialog() {
+    if (gameState.gameOver = true) {
+        // Determine the result based on scores
+        let result;
+        if (userScore > computerScore) {
+            result = 'win';
+        } else if (userScore < computerScore) {
+            result = 'lose';
+        } else {
+            result = 'tie';
+        }
+
+     // Set the text and display the dialog based on the result
+     if (result === 'win') {
+        gameOverText.innerHTML = "You WON! <span class='emoji'>&#x1F64C;</span>";
+        // Play win sound
+        winGameSound.play();
+    } else if (result === 'lose') {
+        gameOverText.innerHTML = "You Lost, better luck next time! <span class='emoji'>&#x1F622;</span>";
+        // Play lose sound
+        loseGameSound.play();
+    } else {
+        gameOverText.innerHTML = "Nice Tie! <span class='emoji'>&#x1F603;</span>";
+        // Play regular game sound
+        welcomePauseSound.play();
+    }
+
+    // Display the Game Over dialog box
+    gameOverDialog.style.display = 'block';
+}
+
+
+// Function to hide the Game Over dialog box
+function hideGameOverDialog() {
+    // Hide the Game Over dialog box
+    gameOverDialog.style.display = 'none';
+}
+
+// Event listener for the close button in the Game Over dialog box
+document.querySelector('#gameOverDialog .closeGameOver').addEventListener('click', function() {
+    // Hide the Game Over dialog box
+    hideGameOverDialog();
+    // Reset the game
+    resetTheGame();
+    welcomePauseSound.pause();
+    loseGameSound.pause();
+    winGameSound.pause();
+});
+}
