@@ -121,14 +121,64 @@ function playUserMovesSound() {
 
 
 
-// Function to handle the user's move choice
-function userChooses (move) {
+// User Move Selection - All in one function
+function selectUserMove(userChoice) {
 
-    //Update's the user's move variable
-    userChooses = move;
+    // Check if the timer has started
+    if (!gameState.gameStarted) {
+        return; // Exit early if the timer hasn't started
+    }
 
-    // Display User's move ();
-    displayUserMove ();
+    if (userChoice !== null) {
+        // Play the user move selection sound
+        userMoveSelectSound.play();
+    }
+
+    // Check if the timer is still running
+    if (gameState.count === 0) {
+        return; // Exit early if the timer has ended
+    }
+
+
+    // Use switch statement to set the image path based on the user's choice
+    //let imagePath;
+    switch (userChoice) {
+        case 'scissors':
+            imagePath = "Images/scissorsplayerplay.png";
+            selectedMove = "scissors";
+            break;
+        case 'paper':
+            imagePath = "Images/paperplayerplay.png";
+            selectedMove = "paper";
+            break;
+        case 'rock':
+                imagePath = "Images/rockplayerplay.png";
+                selectedMove = "rock";
+                break;
+        default:
+            // Default to rock if an invalid choice is provided
+            imagePath = "Images/rockplayerplay.png";
+            break;
+    }
+    
+    userMovePlayed = true;
+    //console.log("User selected: " + imagePath + " (" + selectedMove + ")"); // Proceed with game logic
+    //userChoice = userMoves;
+
+
+
+    // Set the source (src) attribute of the image to the constructed path
+    userMoves = selectedMove;
+
+    //shufflePlayerMoves();
+
+    // Call function to let the computer make its move (randomly)
+    const computerChoice = generateComputerMove();
+    computerMoves = computerChoice;
+
+    // Log the computer's move
+    //console.log("Computer selected: " + computerImagePath + computerMoves);
+
 }
 
 
