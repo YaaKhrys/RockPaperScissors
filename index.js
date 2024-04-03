@@ -214,3 +214,31 @@ if (gameState.count === 5) {
     computerMoveDisplay.src = computerImagePath;
 }
 }
+
+
+// Determine the winner
+function determineWinner(userChoice, computerChoice) {
+
+    // Rules to determine the winner
+    if (userChoice === computerChoice) {
+        // If both the user and computer make the same choice, it's a draw
+        selectedChoice(userChoice, 'equals', computerChoice, 'its a Tie!' )
+        return 'draw';
+
+
+    } else if (
+        (userChoice === 'rock' && computerChoice === 'scissors') ||
+        (userChoice === 'paper' && computerChoice === 'rock') ||
+        (userChoice === 'scissors' && computerChoice === 'paper')
+    ) {
+        // If the user's choice beats the computer's choice, the user wins 
+        selectedChoice(userChoice, 'beats', computerChoice, 'You Win!')
+        return 'user';
+
+    } else {
+        // If neither of the above conditions is met, the computer wins
+        selectedChoice(computerChoice, 'beats', userChoice, 'You Lose!')
+        return 'computer';
+    }
+
+}
