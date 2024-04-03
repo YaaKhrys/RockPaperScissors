@@ -184,20 +184,19 @@ function selectUserMove(userChoice) {
 
 
 
-// Generating Cmputer's Moves (Choices)
+// Function to let the computer make its move (randomly)
+function generateComputerMove() {
+    const computerMovesList = ['rock', 'paper', 'scissors'];
+    const computerSelection = Math.floor(Math.random() * computerMovesList.length)
+    const computerChoice = computerMovesList[computerSelection];
 
-function generateComputerMove () {
+    computerImagePath = `Images/${computerChoice.toLowerCase()}computerplay.png`;
+   // computerMoveImage.src = computerImagePath;
 
-    //Array of possible Computer choices
-    const computerMoves = ["Rock", "Paper" "Scissors"];
+   computerMoves = computerChoice;
 
-    // Generate a random index for computerMove
-    const randomIndex =  Math.floor(Math.random()*computerMoves.length);
-
-    computerMove = computerMoves[randomIdex];
-
-    displayBothMoves();
+     // Return the computer's choice
+     return computerChoice;
 }
-
 
 // Function to display both player's moves after shuffling
