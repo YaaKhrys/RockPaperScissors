@@ -329,3 +329,17 @@ if (round === 3) {
     endGame(); // End the Game
 }
 }
+
+
+// Function to check if the user has played in the current round
+function checkUserMove() {
+    if (!userMovePlayed) {
+        // Log a message indicating that the user did not play
+        //console.log("User did not play");
+        moveStatusText.textContent = "You did not select a move.";
+        clearInterval(interval); // Stop the countdown
+        return;
+    }
+}
+
+
