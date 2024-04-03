@@ -353,3 +353,11 @@ let gameState = {
     gameOver: false
 };
 
+
+
+
+// Function to update the countdown display
+function updateCountdownDisplay() {
+    const countdownDisplay = document.querySelector("#playTimer h2");
+    countdownDisplay.textContent = `00:0${gameState.count}s`;
+}
