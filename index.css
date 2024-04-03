@@ -1,32 +1,366 @@
 /*General Design for entire page*/
 body {
-  background-color: rgb(255, 255, 255);  
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-image: url("Images/GameBackground.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+    background-color: rgb(255, 255, 255);  
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url("Images/GameBackground.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
+
+
+/* Style for the welcome box */
+#welcomeBox {
+    visibility: visible;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 1, 1, 0.938); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the dialog content */
+.welcomeDialog-content {
+    background-color: #000000;
+    padding: 20px;
+    margin: 15% auto;/* Center the dialog vertically */
+    border: 1px solid #5b2a2a; /* Border */
+    width: 50%;
+    height: 40%;
+    max-width: 70%; /* Set maximum width */
+    text-align: center; /* Center-align the content */
+    max-height: 60%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1.5%;
+    overflow: hidden; /* Hide overflow content */
+}
+
+#welcomeText {
+    color: #fefefe;
+    position: absolute;
+    top: 28%; /* Position from the top of the container */
+    left: -2%; /* Position from the left of the container */
+    margin-left: 40px;
+    padding: auto; /* Space around the text */
+    width: 100%;
+}
+
+#luckText {
+    color: #501e1e;
+    position: fixed;
+    margin-top: 23%;
+    margin-left: 19%;
+}
+
+#coverImage {
+    margin: auto; /* Center the container vertically */
+    margin-left: 20%;
+    width: 400px; /* Adjust width as needed */
+    max-width: 100%; /* Set maximum width */
+    height: auto; /* Set maximum height */
+}
+
+/* Style for the Next button */
+#nextButton, .coverNextButton {
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+    font-size: 25px;
+    margin-top: 45%;
+    border: none;
+    background-color: #2b2b2b3b;
+    color: #403f3f;
+}
+
+#nextButton:hover, #nextButton:focus {
+    color:  #42221c;/* Change color on hover */
+    text-decoration: none; /* Remove underline */
+    cursor:pointer /* Hover effect for the nextbutton button */
+}
+
+#nextButton:active {
+    transform: translateY(3px); 
+}
+
+
+#introDialog {
+z-index: 10000;  /* Higher z-index to make it appear above other elements */
+/*display: flex;  Use flexbox for layout */
+}
+
+.introdialog {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Semi-transparent black background */
+    visibility: hidden; /* Make the dialog box visible */
+}
+
+/* Style for the dialog content */
+.dialog-content {
+    background-color: #fefefe;
+    margin: 15% auto;/* Center the dialog vertically */
+    padding: 20px;
+    border: 1px solid #888; /* Border */
+    max-width: 50%; /* Set maximum width */
+    text-align: center; /* Center-align the content */
+    overflow-y: auto; /* Add vertical scrollbar if content overflows */
+    max-height: 40%;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1.5%;
+}
+
+
+/* Style for the close button */
+#closeWindow {
+    position: fixed;
+    margin-left: 47%;
+    color: #aaa;
+    float: right; /* Align to the right */
+    font-size: 28px;
+    font-weight: bold;
+    z-index: 500;
+}
+
+/* Hover effect for the close button */
+#closeWindow:hover, #closeWindow:focus {
+    color: black;/* Change color on hover */
+    text-decoration: none; /* Remove underline */
+    cursor:pointer /* Hover effect for the close button */
+}
+
+#introImage {
+    position: fixed;
+    float: left; /* Move the container to the left */
+    margin: auto; /* Center the container vertically */
+    margin-top: 5%;
+    width: 400px; /* Adjust width as needed */
+    max-width: 100%; /* Set maximum width */
+    max-height: 100%; /* Set maximum height */
+}
+
+#gameGuide {
+margin-top: 5%;
+width: 300px;
+position: relative;
+padding-left: 60%;
+padding-right: 1%;
+}
+
+/* Style for the paragraph Titles within the dialog content */
+#introText, #gameGuideTitle, #gameRulesTitle{
+    text-align: center;
+}
+
+/* Style for the paragraphs within the dialog content */
+#introBrief, #howToPlay, #theGameRules, #gameScoring, #gameControlsGuide {
+    font-size: small;
+    text-align: centre;
+}
+
+
+#bestWishes{
+font: caption;
+color: #fdab30;
+}
+
+
+/* Style for the Game Over dialog box */
+#gameOverDialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 350px;
+    height: 150px;
+    padding: 50px;
+    background-color: #ffffff;
+    border: 2px solid #000000;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+    display: none;
+    border-radius: 3%;
+}
+
+/* Style for the dialog content */
+.dialog-contentGameOver {
+    align-items: center;
+    border: none;
+}
+
+/* Style for the close button */
+.closeGameOver {
+    position: absolute;
+    top: 5px;
+    right: 8px;
+    cursor: pointer;
+}
+
+
+/* Hover effect for the close button */
+.closeGameOver, .closeGameOver:focus {
+    color: rgb(174, 172, 172);/* Change color on hover */
+    text-decoration: none; /* Remove underline */
+    cursor:pointer /* Hover effect for the close button */
+}
+
+/* Style for the game over title */
+#gameOverTitle {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #42221c;
+    text-align: center;
+}
+
+/* Style for the game over text */
+#gameOverText {
+    margin-top: 20px;
+    color: #fdab30;
+    align-items: center;
+    text-align: center;
+}
+
+
+/* Style for the emojis */
+.emoji {
+    font-size: 25px; /* Adjust font size as needed */
+}
+
+
+
+#start{
+    position: fixed;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 25%; /* Add margin to the bottom */
+    margin-left: 36%;
+    border: none;
+    color: #d8d7d7;
+    border-radius: 3%;
+}
+
+
+#start:hover, #start:focus {
+    color:  #f3cb8f;/* Change color on hover */
+    text-decoration: none; /* Remove underline */
+    cursor:pointer /* Hover effect for the close button */
+}
+
+
+#start:active {
+    transform: translateY(3px); 
+}
+
+
+/* Style for the pause dialog box */
+#pauseDialogBox{
+    position: fixed;
+    visibility: hidden;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(8, 1, 1, 0.938); /* Semi-transparent black background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Style for the dialog content */
+.pauseDialog-content {
+    background-color: #000000;
+    padding-top:20px;
+    padding-bottom: 20px;
+    padding-left: 100px;
+    padding-right: 100px;
+    border: 1px solid #5b2a2a; /* Border */
+    text-align: center;
+}
+
+/* Style for the close button */
+.pauseDialogclose {
+    color: #403f3f;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    position: fixed;
+    margin-left: 10%;
+    margin-top: -1.5%;
+}
+
+.pauseDialogclose:hover, .pauseDialogclose:focus {
+    color: #5b2a2a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+/* Style for the Next button */
+#pauseDialogResume, .pauseDialogResume {
+    position: relative;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: 15px;
+    margin-top: 45%;
+    border: none;
+    background-color: #2b2b2b3b;
+    color: #403f3f;
+}
+
+
+#pauseDialogResume:hover, #pauseDialogResume:focus {
+    color:  #42221c;/* Change color on hover */
+    text-decoration: none; /* Remove underline */
+    cursor:pointer /* Hover effect for the nextbutton button */
+}
+
+
+#pauseDialogResume:active {
+    transform: translateY(3px); 
+}
+
+
+#pauseText {
+    width: 100%;
+    color: #501e1e;
+}
+
+#audioPlayer, #welcomePauseGameSound {
+    display: none; /* Hide the audio player */
+  }
 
 /*Score area's design*/
 .scoresSection {
-display: flex;
-justify-content: space-between;
-margin-top: 3%;
-margin-left: 15%;
-margin-right: 15%;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    margin-left: 15%;
+    margin-right: 15%;
 }
 
 
 /*Design for the user and computer scores and the game round's display*/
 #userScore {
-width: 18%;
-height: 72px;
-background-color: #D9D9D9;
-position: relative;
-border-radius: 10px;
-flex-shrink: 0;
+    width: 18%;
+    height: 72px;
+    background-color: #D9D9D9;
+    position: relative;
+    border-radius: 10px;
+    flex-shrink: 0;
 }
 
 /* To set the dimensions for the Player's icon in the score area*/
@@ -57,10 +391,10 @@ flex-shrink: 0;
 
 /* To set the dimensions for the Computer's icon in the score area*/
 .theComputerScore {
-margin-top: 23px;
-margin-left: 15px;
-float: left;
-font-size: 24px;
+    margin-top: 23px;
+    margin-left: 15px;
+    float: left;
+    font-size: 24px;
     }
 
 /* To set the scores for the Computer in the score area*/
@@ -73,7 +407,7 @@ font-size: 24px;
     }
 
 
-#roundsDisplay {
+#Rounds {
     width: 215px;
     height: 35px;
     clip-path: polygon(17.5% 100%, 0% 0%, 100% 0%, 82.5% 100%);
@@ -101,21 +435,11 @@ font-size: 24px;
 
 
 /*Design for each players area to make their moves and the timer for each play round*/
-#userMoveDisplayIcon, #computerMoveDisplayIcon {
-background-color: transparent;
-z-index: 2;
-top: 0;
-left: 0;
-
-}
-
 .userMoveDisplay {
-width: 20%;
-height: 35%;
-position: absolute;
-order: 1;
-overflow: hidden;
-margin-right: 10%;
+    width: 20%;
+    height: 35%;
+    position: absolute;
+    margin-right: 10%;
 }
 
 .computerMoveDisplay {
@@ -123,27 +447,43 @@ margin-right: 10%;
     height: 35%;
     margin-left: 1px;
     position: absolute;
-    order: 2;
-    overflow: hidden;
-    }
-
-#computerPaperMove{
-    z-index: 3;
 }
 
+/* Adjust z-index for user's moves */
+#userRockDisplay { z-index: 3; }
+#userPaperDisplay { z-index: 2; }
+#userScissorsDisplay { z-index: 1; }
+
+/* Adjust z-index for computer's moves */
+#computerRockDisplay { z-index: 6; }
+#computerPaperMove { z-index: 5; }
+#computerScissorsDisplay { z-index: 4; }
+
+
 #playTimer {
-color: #fff;
-font-size: 30px;
-text-align: center;
-margin-top: 60px;
-margin-left: 40%;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    margin-top: 60px;
+    margin-left: 40%;
 }
 
 
 #playTimer p {
    font-size: 15px; 
-   color: #202020;
+   color: #6c848b;
    margin-top: 0;
+}
+
+/*Game Space*/
+#gameSpace {
+    padding: 1%;
+}
+
+
+/* Apply pre-line or pre-wrap to allow newline character to take effect */
+#status {
+    white-space: pre-line; /* or white-space: pre-wrap; */
 }
 
 
@@ -154,6 +494,7 @@ margin-left: 40%;
     justify-content: center;
     padding: 5%; 
     margin-left: 5%;
+    visibility: hidden;
 }
 
 .leftPartyPop, .winIconDisplay, .loseIconDisplay, .rightPartyPop {
@@ -193,6 +534,7 @@ margin-left: 40%;
     position: fixed;
 }
 
+
 /*Game controls for the User to Pause, stop and reset the game*/
 .gameButtons, .gameControls {
     max-width: 50%;
@@ -203,45 +545,115 @@ margin-left: 40%;
     padding-right: 1%; 
 }
 
-#pauseGameIcon {
-    margin-left: 5%;
-}
-
 
 #resetGameIcon {
-    width: 90px;
-    height: 50px;
+    width: 100px;
+    height: 60px;
     float: left;
     margin-top: 3.1%;
 }
+
+#playGameIcon {
+    padding-left: 12px;
+}
+
+
+/* Overlap of Play and Pause icons
+.under {
+    position: relative;
+    left: 0px;
+    top: 0px;
+    z-index: 1;
+    visibility: hidden; /* Hide the bottom image by default 
+  }
+  
+  .over {
+    position: absolute;
+    left: 0px;
+    top: 1px;
+    z-index: 2;
+    visibility: visible; /* Show the bottom image when the top image is hovered
+  }*/
 
 
 /*Game controls for the User to choose the play moves*/
 .userPlayButtons, .userMoveOptions {
     max-width: 100%;
     max-height: 100px;
-    margin-top: 15px;
+    margin-top: -5px;
     margin-left: 15px;
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-end; 
 }
 
+
+/* Click effects for Game controls */
+
+#playGameIcon:active {
+    transform: translateY(4px); 
+}
+
+
+#pauseGameIcon:active{
+    transform: translateY(4px);
+}
+
+#resetGameIcon:active{
+    transform: translateY(4px);
+}
+
+#resetGameIcon {
+    margin-right: 5%;
+}
+
+
+/* Click effects for User Play Options */
+#rockIcon:active {
+    transform: translateY(4px);
+}
+
+#paperIcon:active {
+    transform: translateY(4px);
+}
+
+#scissorsIcon:active {
+    transform: translateY(4px);
+}
 
 #scissorsIcon {
     margin-right: 5%;}
 
+
+/* Hover effects for both Game controls and User Play Option */
+.brighten {
+    -webkit-filter: brightness(40%);
+    filter: brightness(40%); /*Standard property*/
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+.brighten:hover {
+-webkit-filter: brightness(100%);
+filter: brightness(100%); /*Standard property*/
+}
+
+/*Message under User play options*/
 #userActionMessage {
     font-size: 15px; 
-    color: #ffffff;
+    color: #928e8e;
     display: flex;
     justify-content: flex-end;
-    margin-right: 6%;
-    margin-top: 0.2%;
+    margin-right: 6.9%;
+    margin-top: 0.01%;
     padding-bottom: 3%;
  }
 
 
 
+ 
 /*The copyright area's design*/
 #copyrightText {
     font-size: 18px;
