@@ -30,16 +30,37 @@ let imagePath = "";
 
 
 // References to HTML elements - Linking to IDs
-const rockChoice = docuemnt.getElementById("rockIcon"); // Icon for the User rock move
-const paperChoice = docuemnt.getElementById("paperIcon"); // Icon for the User paper move
-const scissorsChoice = docuemnt.getElementById("scissorsIcon"); // Icon for the User scissors move
-const playGame = docuemnt.getElementById("playIcon"); // Icon to play/start game
-const pauseGame = docuemnt.getElementById("pauseIcon"); // Icon to pause game
-const resetGame = docuemnt.getElementById("resetIcon"); // Icon to reset game
-const userMoveDisplay = docuemnt.getElementById("userMoveDisplay"); // Container that display's the user's moves
-const computerMoveDisplay = docuemnt.getElementById("computerMoveDisplay"); // Container that display's the computer's moves
-const userScoreDisplay = docuemnt.getElementById("userScoreDisplay"); // Display area for the user's scores
-const computerScoreDisplay = docuemnt.getElementById("computerScoreDisplay"); // Display area for the computer's scores
+const rockChoice = document.getElementById("rockIcon"); // Icon for the User rock move
+const paperChoice = document.getElementById("paperIcon"); // Icon for the User paper move
+const scissorsChoice = document.getElementById("scissorsIcon"); // Icon for the User scissors move
+const playGame = document.getElementById("playIcon"); // Icon to play/start game
+const pauseButton = document.querySelector("#pauseGameIcon .pause"); // Icon to pause game
+const resetGame = document.getElementById("resetIcon"); // Icon to reset game
+const userMoveDisplay = document.querySelector(".userMoveDisplay"); // Container that display's the user's moves
+const computerMoveDisplay = document.querySelector(".computerMoveDisplay"); // Container that display's the computer's moves
+const userScoreDisplay = document.querySelector("#userScore .theUserScore"); // Display area for the user's scores
+const computerScoreDisplay = document.querySelector("#computerScore .theComputerScore"); // Display area for the computer's scores
+const roundDisplay = document.querySelector("#roundsDisplay .roundsCountNumber"); //Display round number 
+const annoucementDisplay = document.querySelector("#resultsAnnounceSection .announcementSection") //Display annoucement
+const countdownDisplay = document.querySelector("#playTimer h2"); // Display game timer
+const gameStartButton = document.getElementById("playGameIcon");
+const welcomeBox = document.getElementById('welcomeBox');
+const nextButton = document.getElementById('nextButton');
+const introDialog = document.getElementById('introDialog');
+const closeButton = document.querySelector('#introDialog #closeWindow');
+const startButton = document.getElementById('start');
+const welcomePauseSound = document.getElementById("welcomePauseGameSound");
+const moveStatusText = document.querySelector("#status");
+const userMovesSelection = document.getElementsByClassName("userMoveOptions");
+const userMoveSelectSound = document.getElementById("userMovesSelectionSound");
+const pauseDialogBox = document.getElementById('pauseDialogBox');
+const resumeButton = document.getElementById('pauseDialogResume');
+const userImages = document.querySelectorAll('#userMoveDisplayIcon .userMoveDisplay');
+const computerImages = document.querySelectorAll('#computerMoveDisplayIcon .computerMoveDisplay');
+const gameOverDialog = document.getElementById('gameOverDialog');
+const gameOverText = document.getElementById('gameOverText');
+const winGameSound = document.getElementById("userWinGameSound");
+const loseGameSound = document.getElementById("userLoseGameSound");
 
 
 // Adding event listeners to the User move options div elements
