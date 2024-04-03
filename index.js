@@ -493,3 +493,31 @@ function endGame() {
     displayGameOverDialog();
     // Any other tasks to end the game
 }
+
+
+function resetGlobalVariables() {
+    playsInRound = 0;
+    round = 1;
+    userScore = 0;  
+    computerScore = 0;
+    roundDisplay.textContent = round;
+    userScoreDisplay.textContent = userScore;
+    computerScoreDisplay.textContent = computerScore;
+    gameState.count = 5; // Initialize count to its initial value
+    gameState.gamePaused = false;
+    gameState.gameStarted = false;
+    gameState.gameOver = false;
+    updateCountdownDisplay();
+}
+
+
+// Function to reset the game
+function resetTheGame() {
+    if (gameState.gameOver) {
+        gameState.gameReseted = true;
+        // Reset global variables
+        resetGlobalVariables();
+        // Restart the countdown timer and update display
+        //console.log("Game reseted");
+    }
+}
