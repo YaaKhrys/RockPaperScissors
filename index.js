@@ -242,3 +242,50 @@ function determineWinner(userChoice, computerChoice) {
     }
 
 }
+
+
+
+// To identify the win/lose icons based on selected player choice
+function selectedChoice(userChoice, beatText, computerChoice, winText){
+    let winner = userChoice === 'rock'? "Images/stonewinicon.png": 
+    userChoice === 'paper'? "Images/paperwinicon.png": 
+    "Images/scissorwin-3d-icon-in-front-view-png 1.png";
+
+     let loser = computerChoice === 'rock'? "Images/stonewinicon.png": 
+     computerChoice === 'paper'? "Images/paperwinicon.png": 
+     "Images/scissorwin-3d-icon-in-front-view-png 1.png";
+
+     annouceWin(winner, beatText, loser, winText);
+}
+
+
+
+ // Win/Lose/Draw Annoucement after each play
+function annouceWin(winIconimg, beatText, loseIconimg, winText){
+    let winIcon = document.getElementById("winIcon").children[0]
+    let beat = document.getElementById("beatText").children[0]
+    let loseIcon = document.getElementById("loseIcon").children[0]
+    let win = document.getElementById("winText").children[0]
+
+    //Annoucement statement string
+    winIcon.src = winIconimg
+    beat.innerHTML = beatText
+    loseIcon.src = loseIconimg
+    win.innerHTML = winText
+}
+
+
+// Function to display the results announcement section
+function displayResultsAnnouncement() {
+    // Set the visibility of the results announcement section to 'visible'
+    resultsAnnounceSection.style.visibility = 'visible';
+
+    // Set a timeout to hide the results announcement section after a couple of seconds
+    setTimeout(function() {
+        // Set the visibility of the results announcement section to 'hidden' after the timeout
+        resultsAnnounceSection.style.visibility = 'hidden';
+    }, 3000); // Adjust the timeout duration as needed (in milliseconds)
+}
+
+// Call the displayResultsAnnouncement function after player moves are played
+displayResultsAnnouncement();
