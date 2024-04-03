@@ -441,3 +441,11 @@ function startCountdown(){
     }, 1000);  // Run the countdown every second    
 }
  }
+
+
+ function startGame(){
+    startCountdown();
+    gameState.gameStarted = true;
+    //console.log("Game On!");
+    statusCheck();
+}
