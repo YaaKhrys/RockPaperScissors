@@ -49,3 +49,6 @@ It is often used in some cases for decision-making or a game of chance.
 ## Sign-Off
 Lets dive into an interactive world RocK Paper Scissors!
  
+
+## Acknowledgments:
+This project was built with the help of Augustine Blewudzi.
